@@ -9,7 +9,7 @@
 #import "EventViewController.h"
 #import <Parse/Parse.h>
 
-@interface EventViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface EventViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *eventNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *eventPasswordTextField;
 @property (strong) NSString *eventID;
@@ -76,12 +76,13 @@
                 self.eventID = object.objectId;
                 // TO DO:
                 // send object.objectId to new view controller
-                UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-                imagePickerController.delegate = self;
-                imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-                [self presentViewController:imagePickerController
-                                   animated:YES
-                                 completion:nil];
+                
+                UIActionSheet *imagePickerActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select image from:"
+                                                                                    delegate:self
+                                                                           cancelButtonTitle:@"Cancel"
+                                                                      destructiveButtonTitle:nil
+                                                                           otherButtonTitles:@"Camera",@"Photo Library", nil];
+                [imagePickerActionSheet showInView:self.view];
                 
             } else {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Uh Oh!"
@@ -128,6 +129,22 @@
             }];
         }
     }];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    if (buttonIndex == 0) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else if (buttonIndex == 1) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentViewController:imagePickerController
+                       animated:YES
+                     completion:nil];
 }
 
 @end
