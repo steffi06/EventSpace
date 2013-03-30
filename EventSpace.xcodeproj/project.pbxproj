@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85DA19B217077C5A00913B02 /* FGalleryPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DA19AD17077C5A00913B02 /* FGalleryPhoto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		85DA19B317077C5A00913B02 /* FGalleryPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DA19AF17077C5A00913B02 /* FGalleryPhotoView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		85DA19B417077C5A00913B02 /* FGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DA19B117077C5A00913B02 /* FGalleryViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		85DA19BC17077F2400913B02 /* PhotoSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DA19BB17077F2400913B02 /* PhotoSource.m */; };
+		85DA19BF17078A2000913B02 /* photo-gallery-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DA19BD17078A2000913B02 /* photo-gallery-left.png */; };
+		85DA19C017078A2000913B02 /* photo-gallery-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DA19BE17078A2000913B02 /* photo-gallery-right.png */; };
 		BE5CB9C3170765C300E9E9DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9C2170765C300E9E9DF /* UIKit.framework */; };
 		BE5CB9C5170765C300E9E9DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9C4170765C300E9E9DF /* Foundation.framework */; };
 		BE5CB9C7170765C300E9E9DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9C6170765C300E9E9DF /* CoreGraphics.framework */; };
@@ -33,6 +39,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85DA19AC17077C5A00913B02 /* FGalleryPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryPhoto.h; sourceTree = "<group>"; };
+		85DA19AD17077C5A00913B02 /* FGalleryPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryPhoto.m; sourceTree = "<group>"; };
+		85DA19AE17077C5A00913B02 /* FGalleryPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryPhotoView.h; sourceTree = "<group>"; };
+		85DA19AF17077C5A00913B02 /* FGalleryPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryPhotoView.m; sourceTree = "<group>"; };
+		85DA19B017077C5A00913B02 /* FGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryViewController.h; sourceTree = "<group>"; };
+		85DA19B117077C5A00913B02 /* FGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryViewController.m; sourceTree = "<group>"; };
+		85DA19BA17077F2400913B02 /* PhotoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSource.h; sourceTree = "<group>"; };
+		85DA19BB17077F2400913B02 /* PhotoSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSource.m; sourceTree = "<group>"; };
+		85DA19BD17078A2000913B02 /* photo-gallery-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-left.png"; sourceTree = "<group>"; };
+		85DA19BE17078A2000913B02 /* photo-gallery-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-right.png"; sourceTree = "<group>"; };
 		BE5CB9BF170765C300E9E9DF /* EventSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5CB9C2170765C300E9E9DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE5CB9C4170765C300E9E9DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,9 +104,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85DA19AB17077C3000913B02 /* FGallery */ = {
+			isa = PBXGroup;
+			children = (
+				85DA19AC17077C5A00913B02 /* FGalleryPhoto.h */,
+				85DA19AD17077C5A00913B02 /* FGalleryPhoto.m */,
+				85DA19AE17077C5A00913B02 /* FGalleryPhotoView.h */,
+				85DA19AF17077C5A00913B02 /* FGalleryPhotoView.m */,
+				85DA19B017077C5A00913B02 /* FGalleryViewController.h */,
+				85DA19B117077C5A00913B02 /* FGalleryViewController.m */,
+			);
+			name = FGallery;
+			sourceTree = "<group>";
+		};
+		85DA19B917077F1800913B02 /* PhotoSource */ = {
+			isa = PBXGroup;
+			children = (
+				85DA19BA17077F2400913B02 /* PhotoSource.h */,
+				85DA19BB17077F2400913B02 /* PhotoSource.m */,
+			);
+			name = PhotoSource;
+			sourceTree = "<group>";
+		};
 		BE5CB9B6170765C300E9E9DF = {
 			isa = PBXGroup;
 			children = (
+				85DA19AB17077C3000913B02 /* FGallery */,
 				BE5CB9C8170765C300E9E9DF /* EventSpace */,
 				BE5CB9C1170765C300E9E9DF /* Frameworks */,
 				BE5CB9C0170765C300E9E9DF /* Products */,
@@ -128,6 +167,7 @@
 		BE5CB9C8170765C300E9E9DF /* EventSpace */ = {
 			isa = PBXGroup;
 			children = (
+				85DA19B917077F1800913B02 /* PhotoSource */,
 				BE5CB9D1170765C300E9E9DF /* AppDelegate.h */,
 				BE5CB9D2170765C300E9E9DF /* AppDelegate.m */,
 				BE5CB9F517076BD400E9E9DF /* WelcomeViewController.h */,
@@ -144,6 +184,8 @@
 		BE5CB9C9170765C300E9E9DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				85DA19BD17078A2000913B02 /* photo-gallery-left.png */,
+				85DA19BE17078A2000913B02 /* photo-gallery-right.png */,
 				BE5CB9CA170765C300E9E9DF /* EventSpace-Info.plist */,
 				BE5CB9CB170765C300E9E9DF /* InfoPlist.strings */,
 				BE5CB9CE170765C300E9E9DF /* main.m */,
@@ -212,6 +254,8 @@
 				BE5CB9D9170765C300E9E9DF /* Default-568h@2x.png in Resources */,
 				BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */,
 				BE5CB9FE1707713E00E9E9DF /* EventViewController.xib in Resources */,
+				85DA19BF17078A2000913B02 /* photo-gallery-left.png in Resources */,
+				85DA19C017078A2000913B02 /* photo-gallery-right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +270,10 @@
 				BE5CB9D3170765C300E9E9DF /* AppDelegate.m in Sources */,
 				BE5CB9F817076BD400E9E9DF /* WelcomeViewController.m in Sources */,
 				BE5CB9FD1707713E00E9E9DF /* EventViewController.m in Sources */,
+				85DA19B217077C5A00913B02 /* FGalleryPhoto.m in Sources */,
+				85DA19B317077C5A00913B02 /* FGalleryPhotoView.m in Sources */,
+				85DA19B417077C5A00913B02 /* FGalleryViewController.m in Sources */,
+				85DA19BC17077F2400913B02 /* PhotoSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
