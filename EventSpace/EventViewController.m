@@ -75,14 +75,7 @@
         [eventQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (object) {
                 NSLog(@"object id: %@", object.objectId);
-                [self signedInWithEventId:object.objectId];
-                
-//                UIActionSheet *imagePickerActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select image from:"
-//                                                                                    delegate:self
-//                                                                           cancelButtonTitle:@"Cancel"
-//                                                                      destructiveButtonTitle:nil
-//                                                                           otherButtonTitles:@"Camera",@"Photo Library", nil];
-//                [imagePickerActionSheet showInView:self.view];
+                [self signedInWithEventId:object.objectId];    
             } else {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Uh Oh!"
                                                                     message:@"We couldn't find your event. Please try to join your event again if you have a network connection."
@@ -106,6 +99,7 @@
         }
         self.source = [[PhotoSource alloc] initWithPhotoUrls:urls];
         FGalleryViewController *controller = [[FGalleryViewController alloc] initWithPhotoSource:self.source barItems:[[NSArray alloc] init]];
+        controller.eventId = eventId;
         controller.beginsInThumbnailView = YES;
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
         [self.navigationController presentViewController:navController animated:YES completion:nil];
@@ -122,44 +116,5 @@
     }
     return YES;
 }
-
-#pragma mark - UIImagePickerControllerDelegate
-
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    UIImage *image = info[UIImagePickerControllerOriginalImage];
-//    NSData *data = UIImagePNGRepresentation(image);
-//    PFFile *imageFile = [PFFile fileWithData:data];
-//    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            PFObject *photo = [PFObject objectWithClassName:@"Photo"];
-//            photo[@"eventId"] = self.eventID;
-//            photo[@"url"] = imageFile.url;
-//            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    NSLog(@"Success!");
-//                }
-//                if (error) {
-//                    NSLog(@"error: %@",error);
-//                }
-//            }];
-//        }
-//    }];
-//}
-
-#pragma mark - UIActionSheetDelegate
-
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-//    imagePickerController.delegate = self;
-//    if (buttonIndex == 0) {
-//        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    } else if (buttonIndex == 1) {
-//        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    }
-//    
-//    [self presentViewController:imagePickerController
-//                       animated:YES
-//                     completion:nil];
-//}
 
 @end

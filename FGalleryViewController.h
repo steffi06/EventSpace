@@ -51,6 +51,7 @@ typedef enum
 	NSMutableArray *_barItems;
 	NSMutableArray *_photoThumbnailViews;
 	NSMutableArray *_photoViews;
+    NSString *eventId;
 	
 	NSObject <FGalleryViewControllerDelegate> *_photoSource;
     
@@ -72,6 +73,7 @@ typedef enum
 @property NSInteger currentIndex;
 @property NSInteger startingIndex;
 @property (nonatomic,assign) NSObject<FGalleryViewControllerDelegate> *photoSource;
+@property (nonatomic, retain) NSString *eventId;
 @property (nonatomic,readonly) UIToolbar *toolBar;
 @property (nonatomic,readonly) UIView* thumbsView;
 @property (nonatomic,retain) NSString *galleryID;

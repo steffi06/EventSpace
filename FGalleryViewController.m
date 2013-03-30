@@ -8,13 +8,15 @@
 
 #import "FGalleryViewController.h"
 
+#import <Parse/Parse.h>
+
 #define kThumbnailSize 75
 #define kThumbnailSpacing 4
 #define kCaptionPadding 3
 #define kToolbarHeight 40
 
 
-@interface FGalleryViewController (Private)
+@interface FGalleryViewController (Private) <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 // general
 - (void)buildViews;
@@ -1234,14 +1236,59 @@
 #pragma mark - Camera Methods
 
 - (void)showCamera {
-    NSLog(@"SHOW CAMERA");
+    UIActionSheet *imagePickerActionSheet = [[UIActionSheet alloc] initWithTitle:@"Select image from:"
+                                                                        delegate:self
+                                                               cancelButtonTitle:@"Cancel"
+                                                          destructiveButtonTitle:nil
+                                                               otherButtonTitles:@"Camera",@"Photo Library", nil];
+    [imagePickerActionSheet showInView:self.view];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    PFFile *imageFile = [PFFile fileWithData:data];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+            photo[@"eventId"] = self.eventId;
+            photo[@"url"] = imageFile.url;
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Success!");
+                }
+                if (error) {
+                    NSLog(@"error: %@",error);
+                }
+            }];
+        }
+    }];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    if (buttonIndex == 0) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else if (buttonIndex == 1) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    [self presentViewController:imagePickerController
+                       animated:YES
+                     completion:nil];
 }
 
 @end
 
 
 /**
- *	This section overrides the auto-rotate methods for UINaviationController and UITabBarController 
+ *	This section overrides the auto-rotate methods for UINaviationController and UITabBarController
  *	to allow the tab bar to rotate only when a FGalleryController is the visible controller. Sweet.
  */
 
