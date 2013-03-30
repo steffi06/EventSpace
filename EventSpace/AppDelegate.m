@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse 3/Parse.h>
+#import "WelcomeViewController.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -16,6 +17,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[WelcomeViewController alloc] init];
     [self.window makeKeyAndVisible];
     [Parse setApplicationId:@"f2mPe7FUoxQboBQacCvLG5kjr9k1w1aOc4VFkqhU"
                   clientKey:@"lrh69eX7OvTEGcNoscNNodqfDCoaEU1SBdTQxoj9"];

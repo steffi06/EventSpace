@@ -16,7 +16,7 @@
 		BE5CB9D5170765C300E9E9DF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9D4170765C300E9E9DF /* Default.png */; };
 		BE5CB9D7170765C300E9E9DF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9D6170765C300E9E9DF /* Default@2x.png */; };
 		BE5CB9D9170765C300E9E9DF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9D8170765C300E9E9DF /* Default-568h@2x.png */; };
-		BE5CB9E2170768B000E9E9DF /* Parse 3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9E1170768B000E9E9DF /* Parse 3.framework */; };
+		BE5CB9E2170768B000E9E9DF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9E1170768B000E9E9DF /* Parse.framework */; };
 		BE5CB9E51707690F00E9E9DF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9E31707690F00E9E9DF /* AudioToolbox.framework */; };
 		BE5CB9E61707690F00E9E9DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9E41707690F00E9E9DF /* CFNetwork.framework */; };
 		BE5CB9E81707691E00E9E9DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9E71707691E00E9E9DF /* CoreLocation.framework */; };
@@ -26,6 +26,8 @@
 		BE5CB9F01707693A00E9E9DF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9EF1707693A00E9E9DF /* Security.framework */; };
 		BE5CB9F31707694900E9E9DF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9F11707694900E9E9DF /* StoreKit.framework */; };
 		BE5CB9F41707694900E9E9DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9F21707694900E9E9DF /* SystemConfiguration.framework */; };
+		BE5CB9F817076BD400E9E9DF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */; };
+		BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +44,7 @@
 		BE5CB9D4170765C300E9E9DF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BE5CB9D6170765C300E9E9DF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BE5CB9D8170765C300E9E9DF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BE5CB9E1170768B000E9E9DF /* Parse 3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Parse 3.framework"; sourceTree = "<group>"; };
+		BE5CB9E1170768B000E9E9DF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		BE5CB9E31707690F00E9E9DF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BE5CB9E41707690F00E9E9DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BE5CB9E71707691E00E9E9DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -52,6 +54,9 @@
 		BE5CB9EF1707693A00E9E9DF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BE5CB9F11707694900E9E9DF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BE5CB9F21707694900E9E9DF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE5CB9F517076BD400E9E9DF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +76,7 @@
 				BE5CB9E61707690F00E9E9DF /* CFNetwork.framework in Frameworks */,
 				BE5CB9C3170765C300E9E9DF /* UIKit.framework in Frameworks */,
 				BE5CB9C5170765C300E9E9DF /* Foundation.framework in Frameworks */,
-				BE5CB9E2170768B000E9E9DF /* Parse 3.framework in Frameworks */,
+				BE5CB9E2170768B000E9E9DF /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +110,7 @@
 				BE5CB9C4170765C300E9E9DF /* Foundation.framework */,
 				BE5CB9E91707692600E9E9DF /* libz.1.1.3.dylib */,
 				BE5CB9EB1707692D00E9E9DF /* MobileCoreServices.framework */,
-				BE5CB9E1170768B000E9E9DF /* Parse 3.framework */,
+				BE5CB9E1170768B000E9E9DF /* Parse.framework */,
 				BE5CB9ED1707693300E9E9DF /* QuartzCore.framework */,
 				BE5CB9EF1707693A00E9E9DF /* Security.framework */,
 				BE5CB9F11707694900E9E9DF /* StoreKit.framework */,
@@ -120,6 +125,9 @@
 			children = (
 				BE5CB9D1170765C300E9E9DF /* AppDelegate.h */,
 				BE5CB9D2170765C300E9E9DF /* AppDelegate.m */,
+				BE5CB9F517076BD400E9E9DF /* WelcomeViewController.h */,
+				BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */,
+				BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */,
 				BE5CB9C9170765C300E9E9DF /* Supporting Files */,
 			);
 			path = EventSpace;
@@ -194,6 +202,7 @@
 				BE5CB9D5170765C300E9E9DF /* Default.png in Resources */,
 				BE5CB9D7170765C300E9E9DF /* Default@2x.png in Resources */,
 				BE5CB9D9170765C300E9E9DF /* Default-568h@2x.png in Resources */,
+				BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +215,7 @@
 			files = (
 				BE5CB9CF170765C300E9E9DF /* main.m in Sources */,
 				BE5CB9D3170765C300E9E9DF /* AppDelegate.m in Sources */,
+				BE5CB9F817076BD400E9E9DF /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
