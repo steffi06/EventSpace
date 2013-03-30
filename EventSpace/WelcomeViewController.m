@@ -7,6 +7,8 @@
 //
 
 #import "WelcomeViewController.h"
+#import "EventViewController.h"
+#import <Parse/Parse.h>
 
 @interface WelcomeViewController ()
 - (IBAction)joinEvent:(id)sender;
@@ -37,8 +39,14 @@
 }
 
 - (IBAction)joinEvent:(id)sender {
+    EventViewController *joinEventViewController = [[EventViewController alloc] init];
+    joinEventViewController.title = @"Join Event";
+    [self.navigationController pushViewController:joinEventViewController animated:YES];
 }
 
 - (IBAction)createEvent:(id)sender {
+    EventViewController *createEventViewController = [[EventViewController alloc] init];
+    createEventViewController.title = @"Create Event";
+    [self.navigationController pushViewController:createEventViewController animated:YES];
 }
 @end

@@ -28,6 +28,8 @@
 		BE5CB9F41707694900E9E9DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9F21707694900E9E9DF /* SystemConfiguration.framework */; };
 		BE5CB9F817076BD400E9E9DF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */; };
 		BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */; };
+		BE5CB9FD1707713E00E9E9DF /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CB9FB1707713E00E9E9DF /* EventViewController.m */; };
+		BE5CB9FE1707713E00E9E9DF /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9FC1707713E00E9E9DF /* EventViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,9 @@
 		BE5CB9F517076BD400E9E9DF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		BE5CB9FA1707713E00E9E9DF /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		BE5CB9FB1707713E00E9E9DF /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		BE5CB9FC1707713E00E9E9DF /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,9 @@
 				BE5CB9F517076BD400E9E9DF /* WelcomeViewController.h */,
 				BE5CB9F617076BD400E9E9DF /* WelcomeViewController.m */,
 				BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */,
+				BE5CB9FA1707713E00E9E9DF /* EventViewController.h */,
+				BE5CB9FB1707713E00E9E9DF /* EventViewController.m */,
+				BE5CB9FC1707713E00E9E9DF /* EventViewController.xib */,
 				BE5CB9C9170765C300E9E9DF /* Supporting Files */,
 			);
 			path = EventSpace;
@@ -203,6 +211,7 @@
 				BE5CB9D7170765C300E9E9DF /* Default@2x.png in Resources */,
 				BE5CB9D9170765C300E9E9DF /* Default-568h@2x.png in Resources */,
 				BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */,
+				BE5CB9FE1707713E00E9E9DF /* EventViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +225,7 @@
 				BE5CB9CF170765C300E9E9DF /* main.m in Sources */,
 				BE5CB9D3170765C300E9E9DF /* AppDelegate.m in Sources */,
 				BE5CB9F817076BD400E9E9DF /* WelcomeViewController.m in Sources */,
+				BE5CB9FD1707713E00E9E9DF /* EventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
