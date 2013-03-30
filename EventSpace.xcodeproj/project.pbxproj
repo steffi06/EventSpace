@@ -36,6 +36,7 @@
 		BE5CB9F917076BD400E9E9DF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9F717076BD400E9E9DF /* WelcomeViewController.xib */; };
 		BE5CB9FD1707713E00E9E9DF /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5CB9FB1707713E00E9E9DF /* EventViewController.m */; };
 		BE5CB9FE1707713E00E9E9DF /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5CB9FC1707713E00E9E9DF /* EventViewController.xib */; };
+		BE5CBA001707A0D600E9E9DF /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5CB9FF1707A0D600E9E9DF /* Dropbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		BE5CB9FA1707713E00E9E9DF /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		BE5CB9FB1707713E00E9E9DF /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		BE5CB9FC1707713E00E9E9DF /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
+		BE5CB9FF1707A0D600E9E9DF /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = ../../../Downloads/Dropbox.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				BE5CB9C3170765C300E9E9DF /* UIKit.framework in Frameworks */,
 				BE5CB9C5170765C300E9E9DF /* Foundation.framework in Frameworks */,
 				BE5CB9E2170768B000E9E9DF /* Parse.framework in Frameworks */,
+				BE5CBA001707A0D600E9E9DF /* Dropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,7 @@
 				BE5CB9E41707690F00E9E9DF /* CFNetwork.framework */,
 				BE5CB9C6170765C300E9E9DF /* CoreGraphics.framework */,
 				BE5CB9E71707691E00E9E9DF /* CoreLocation.framework */,
+				BE5CB9FF1707A0D600E9E9DF /* Dropbox.framework */,
 				BE5CB9C4170765C300E9E9DF /* Foundation.framework */,
 				BE5CB9E91707692600E9E9DF /* libz.1.1.3.dylib */,
 				BE5CB9EB1707692D00E9E9DF /* MobileCoreServices.framework */,
@@ -353,6 +357,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EventSpace/EventSpace-Prefix.pch";
@@ -368,6 +373,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Downloads\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EventSpace/EventSpace-Prefix.pch";

@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface PhotoSource ()
-@property (strong) NSArray *photoUrls;
 @end
 
 @implementation PhotoSource

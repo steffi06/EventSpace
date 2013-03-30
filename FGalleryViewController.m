@@ -9,6 +9,8 @@
 #import "FGalleryViewController.h"
 
 #import <Parse/Parse.h>
+#import <Dropbox/Dropbox.h>
+#import "PhotoSource.h"
 
 #define kThumbnailSize 75
 #define kThumbnailSpacing 4
@@ -331,7 +333,12 @@
     UIBarButtonItem *cameraItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
                                                                                 target:self
                                                                                 action:@selector(showCamera)] autorelease];
+    
     [self.navigationItem setLeftBarButtonItem:cameraItem];
+    
+    [self.navigationController setToolbarHidden:NO];
+    UIBarButtonItem *fileItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(dropBoxUpload)] autorelease];
+    self.toolbarItems = @[fileItem];
     
     self.useThumbnailView = _useThumbnailView;
 	
@@ -350,7 +357,6 @@
 	if( _currentIndex == -1 ) [self next];
 	else [self gotoImageByIndex:_currentIndex animated:NO];
 }
-
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -1242,6 +1248,28 @@
                                                           destructiveButtonTitle:nil
                                                                otherButtonTitles:@"Camera",@"Photo Library", nil];
     [imagePickerActionSheet showInView:self.view];
+}
+
+#pragma mark - Dropbox methods
+
+- (void)dropBoxUpload {
+    if ([[DBAccountManager sharedManager] linkedAccount]) {
+        NSInteger counter = 0;
+        
+        for (NSString *url in ((PhotoSource *)_photoSource).photoUrls) {
+            counter ++;
+            DBPath *newPath = [[DBPath root] childPath:[NSString stringWithFormat:@"photo%ld.jpeg",(long)counter]];
+            DBFile *file = [[DBFilesystem sharedFilesystem] createFile:newPath error:nil];
+            [file writeData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]] error:nil];
+        }
+    } else {
+        [self dropBoxLogin];
+        [self dropBoxUpload];
+    }
+}
+
+- (void)dropBoxLogin {
+    [[DBAccountManager sharedManager] linkFromController:self];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

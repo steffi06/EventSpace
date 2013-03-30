@@ -10,7 +10,6 @@
 #import "FGalleryViewController.h"
 
 @interface PhotoSource : NSObject <FGalleryViewControllerDelegate>
-
+@property (strong) NSArray *photoUrls;
 - (id)initWithPhotoUrls:(NSArray *)photoUrls;
-
 @end
