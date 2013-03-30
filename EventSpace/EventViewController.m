@@ -110,7 +110,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image = info[UIImagePickerControllerEditedImage];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
     NSData *data = UIImagePNGRepresentation(image);
     PFFile *imageFile = [PFFile fileWithData:data];
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
