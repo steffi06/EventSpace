@@ -9,7 +9,7 @@
 #import "EventViewController.h"
 #import <Parse/Parse.h>
 
-@interface EventViewController () <UITextFieldDelegate>
+@interface EventViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *eventNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *eventPasswordTextField;
 @property (strong) NSString *eventID;
@@ -73,8 +73,16 @@
         [eventQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (object) {
                 NSLog(@"object id: %@", object.objectId);
+                self.eventID = object.objectId;
                 // TO DO:
                 // send object.objectId to new view controller
+                UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+                imagePickerController.delegate = self;
+                imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentViewController:imagePickerController
+                                   animated:YES
+                                 completion:nil];
+                
             } else {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Uh Oh!"
                                                                     message:@"We couldn't find your event. Please try to join your event again if you have a network connection."
@@ -88,7 +96,7 @@
     }
 }
 
-#pragma mark -UITextFieldDelegate
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.tag == 1) {
@@ -97,6 +105,29 @@
         [self submitButton:nil];
     }
     return YES;
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    NSData *data = UIImagePNGRepresentation(image);
+    PFFile *imageFile = [PFFile fileWithData:data];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+            photo[@"eventId"] = self.eventID;
+            photo[@"url"] = imageFile.url;
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Success!");
+                }
+                if (error) {
+                    NSLog(@"error: %@",error);
+                }
+            }];
+        }
+    }];
 }
 
 @end
