@@ -18,7 +18,7 @@
 #define kToolbarHeight 40
 
 
-@interface FGalleryViewController (Private) <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface FGalleryViewController (Private) <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 // general
 - (void)buildViews;
@@ -339,7 +339,7 @@
     [self.navigationItem setLeftBarButtonItem:cameraItem];
     
     [self.navigationController setToolbarHidden:NO];
-    UIBarButtonItem *fileItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(dropBoxUpload)] autorelease];
+    UIBarButtonItem *fileItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(showDropBoxAlert)] autorelease];
     self.toolbarItems = @[fileItem];
     
     self.useThumbnailView = _useThumbnailView;
@@ -1262,7 +1262,13 @@
 
 #pragma mark - Dropbox methods
 
+- (void)showDropBoxAlert {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Upload to DropBox" message:@"Would you like to use DropBox Sync to upload these Event Photos?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
 - (void)dropBoxUpload {
+
     if ([[DBAccountManager sharedManager] linkedAccount]) {
         NSInteger counter = 0;
         
@@ -1319,6 +1325,14 @@
     [self presentViewController:imagePickerController
                        animated:YES
                      completion:nil];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self dropBoxUpload];
+    }
 }
 
 @end
