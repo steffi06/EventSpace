@@ -309,10 +309,12 @@
         
         // start loading thumbs
         [self preloadThumbnailImages];
+
+        [self loadAllThumbViewPhotos];
         
         // start on first image
         [self gotoImageByIndex:_currentIndex animated:NO];
-        
+
         // layout
         [self layoutViews];
     }
@@ -356,6 +358,13 @@
 	// init with next on first run.
 	if( _currentIndex == -1 ) [self next];
 	else [self gotoImageByIndex:_currentIndex animated:NO];
+
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updatePhotos) userInfo:nil repeats:YES];
+    [timer fire];
+}
+
+- (void)updatePhotos {
+    [_photoSource reloadImages];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -859,6 +868,7 @@
 	
 	// tell thumbs that havent loaded to load
 	[self loadAllThumbViewPhotos];
+    [self updateTitle];
 }
 
 
@@ -884,10 +894,10 @@
 	
 	// the preload count indicates how many images surrounding the current photo will get preloaded.
 	// a value of 2 at maximum would preload 4 images, 2 in front of and two behind the current image.
-	NSUInteger preloadCount = 1;
+	NSUInteger preloadCount = 2;
 	
 	FGalleryPhoto *photo;
-	
+
 	// check to see if the current image thumb has been loaded
 	photo = [_photoLoaders objectForKey:[NSString stringWithFormat:@"%i", index]];
 	
@@ -1264,19 +1274,18 @@
         }
     } else {
         [self dropBoxLogin];
-        [self dropBoxUpload];
     }
 }
 
 - (void)dropBoxLogin {
-    [[DBAccountManager sharedManager] linkFromController:self];
+    [[DBAccountManager sharedManager] linkFromController:self.navigationController];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    NSData *data = UIImageJPEGRepresentation(image, 0);
     PFFile *imageFile = [PFFile fileWithData:data];
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

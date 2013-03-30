@@ -97,10 +97,11 @@
         for (PFObject *object in objects) {
             [urls addObject:[object objectForKey:@"url"]];
         }
-        self.source = [[PhotoSource alloc] initWithPhotoUrls:urls];
+        self.source = [[PhotoSource alloc] initWithPhotoUrls:urls eventId:eventId];
         FGalleryViewController *controller = [[FGalleryViewController alloc] initWithPhotoSource:self.source barItems:[[NSArray alloc] init]];
         controller.eventId = eventId;
         controller.beginsInThumbnailView = YES;
+        self.source.controller = controller;
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
         [self.navigationController presentViewController:navController animated:YES completion:nil];
     }];
